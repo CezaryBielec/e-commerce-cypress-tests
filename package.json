@@ -1,0 +1,18 @@
+{
+  "name": "bitpanda",
+  "version": "1.0.0",
+  "description": "automation test assginment",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "cy": "npx cypress open"
+  },
+  "author": "Cezary Bielec",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^15.0.1",
+    "cypress": "^7.2.0",
+    "faker": "^5.5.3",
+    "typescript": "^4.2.4"
+  }
+}

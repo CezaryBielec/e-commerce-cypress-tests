@@ -1,0 +1,20 @@
+import { idSelector } from "../support/helpers";
+
+export const mrGenderRadioButtonSelector = idSelector('id_gender1');
+export const firstNameInputSelector = idSelector('customer_firstname');
+export const lastNameInputSelector = idSelector('customer_lastname');
+export const emailInputSelector = idSelector('email');
+export const passwordInputSelector = idSelector('passwd');
+export const dateOfBirthDaysDropdownSelector = idSelector('days');
+export const dateOfBirthMonthsDropdownSelector = idSelector('months');
+export const dateOfBirthYearsDropdownSelector = idSelector('years');
+export const firstNameAddressInputSelector = idSelector('firstname');
+export const lastNameAddressInputSelector = idSelector('lastname');
+export const addressInputSelector = idSelector('address1');
+export const cityInputSelector = idSelector('city');
+export const stateDropdownSelector = idSelector('id_state');
+export const zipCodeInputSelector = idSelector('postcode');
+export const countryDropdownSelector = idSelector('id_country');
+export const mobilePhoneSelector = idSelector('phone_mobile');
+export const addressAliasInputSelector = idSelector('alias');
+export const registerButtonSelector = idSelector('submitAccount');
