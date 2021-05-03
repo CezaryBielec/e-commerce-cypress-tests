@@ -13,3 +13,6 @@ export const numberOfProductsInCartSelector = classSelector("ajax_cart_quantity 
 export const noProductsInCartSelector = classSelector("ajax_cart_no_product");
 export const removeItemsFromCartButtonSelector = classSelector("remove_link");
 export const cartSectionSelector = "[title='View my shopping cart']";
+export const topsCategorySelector = "//*[@class='tree dynamized']//a[contains(text(), 'Tops')]";
+export const tShirtsCategorySelector = "//*[@class='tree dynamized']//a[contains(text(), 'T-shirts')]";
+export const categoryNameBanner = classSelector("category-name");

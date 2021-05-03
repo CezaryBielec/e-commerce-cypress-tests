@@ -25,6 +25,18 @@ class ProductsPage {
     clickOnContinueShopping() {
         cy.get(selectors.continueShoppingButtonSelector).click();
     }
+    clickOnTopsCategory() {
+        cy.xpath(selectors.topsCategorySelector).first().click();
+    }
+    clickOnTShirtsCategory() {
+        cy.xpath(selectors.tShirtsCategorySelector).first().click();
+    }
+    private verifyCategorySelected(categoryName: string) {
+        cy.get(selectors.categoryNameBanner).should("contain.text", categoryName);
+    }
+    verifyTShirtCategorySelected() {
+        this.verifyCategorySelected("T-shirts");
+    }
 }
 
 export default new ProductsPage();

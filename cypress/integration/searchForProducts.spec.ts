@@ -7,7 +7,16 @@ describe("Filtering the products", () => {
         MainPage.visit();
     })
 
-    it('should filter pink dresses', () => {
+    it('should filter t-shirts', () => {
+        MainPage.clickOnWomenCategory();
+        
+        ProductsPage.clickOnTopsCategory();
+        ProductsPage.clickOnTShirtsCategory();
+
+        ProductsPage.verifyTShirtCategorySelected();
+    })
+
+    it.skip('should filter pink dresses', () => {
         cy.intercept(`${FILTER_CATEGORIES_URL}/*`).as('filter');
 
         MainPage.clickOnWomenCategory();
