@@ -44,7 +44,7 @@ describe("Sign up", () => {
         clickOnCreateAnAccount();
         SignUpPage.clickOnRegister();
 
-        SignUpPage.getValidation().should('contain.text', allFieldsValidation);
+        SignUpPage.getValidation().should('contain', allFieldsValidation);
     })
 
     it("should sign up", () => {

@@ -31,7 +31,9 @@ class SignUpPage extends Page {
     }
 
     getValidation() {
-        return cy.get(selectors.validationSelector);
+        return cy.get(selectors.validationSelector).then(el => {
+            return el.text().replace(/\n+\t+/g,'');
+        });
     }
 }
 
