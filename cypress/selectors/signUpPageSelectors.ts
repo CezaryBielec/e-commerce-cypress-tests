@@ -1,5 +1,6 @@
-import { idSelector } from "../support/helpers";
+import { classSelector, idSelector } from "../support/helpers";
 
+export const validationSelector = classSelector('alert alert-danger');
 export const mrGenderRadioButtonSelector = idSelector('id_gender1');
 export const firstNameInputSelector = idSelector('customer_firstname');
 export const lastNameInputSelector = idSelector('customer_lastname');

@@ -1,8 +1,13 @@
 import * as selectors from "../selectors/signUpPageSelectors";
 import { ADDRESS, CITY, ZIPCODE, PHONE_NUMBER } from "../fixtures/constants";
+import Page from "./page";
 const faker = require('faker');
 
-class SignUpPage {
+class SignUpPage extends Page {
+    verifySignUpPageOpened() {
+        return cy.url();
+    }
+
     fillForm() {
         const name = faker.name.firstName();
         const lastName = faker.name.lastName();
@@ -23,6 +28,10 @@ class SignUpPage {
 
     clickOnRegister() {
         cy.get(selectors.registerButtonSelector).click();
+    }
+
+    getValidation() {
+        return cy.get(selectors.validationSelector);
     }
 }
 

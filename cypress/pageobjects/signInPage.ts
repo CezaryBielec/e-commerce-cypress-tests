@@ -6,11 +6,24 @@ const faker = require('faker');
 class SignInPage extends Page {
     visitSignInPage() {
         this.visit("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        return this;
     }
 
-    enterCorrectEmailAddress() {
+    enterRandomEmailAddress() {
         const emailAddress = faker.internet.email();
-        cy.get(selectors.emailAddressInputSelector).type(emailAddress);
+        this.enterEmailAddress(emailAddress);
+        return this;
+    }
+
+    enterEmailAddress(emailAddress: string) {
+        cy.get(selectors.emailAddressInputSelector).then(el => {
+            if (emailAddress.length != 0) cy.wrap(el).type(emailAddress)
+        });
+        return this;
+    }
+
+    getValidation() {
+        return cy.get(selectors.newAccountEmailValidationSelector);
     }
 
     clickOnCreateAnAccount() {
