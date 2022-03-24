@@ -23,28 +23,30 @@ class SignInPage extends Page {
     }
 
     getValidation() {
-        return cy.get(selectors.newAccountEmailValidationSelector);
+        return this.getValidationText(selectors.newAccountEmailValidationSelector);
     }
 
     clickOnCreateAnAccount() {
         cy.get(selectors.createAnAccountButtonSelector).click();
     }
 
-    enterLogin() {
-        cy.get(selectors.emailInputSelector).type(Cypress.env('email'));
+    enterEmail(email: string) {
+        cy.get(selectors.emailInputSelector).type(email);
+        return this;
     }
 
-    enterPassword() {
-        cy.get(selectors.passwordInputSelector).type(Cypress.env('password'));
+    enterPassword(password: string) {
+        cy.get(selectors.passwordInputSelector).type(password);
+        return this;
     }
 
     clickOnSignIn() {
         cy.get(selectors.signInButtonSelector).click();
     }
 
-    logIn() {
-        this.enterLogin();
-        this.enterPassword();
+    logIn(email: string, password: string) {
+        this.enterEmail(email);
+        this.enterPassword(password);
         this.clickOnSignIn();
     }
 }

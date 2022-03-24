@@ -7,7 +7,7 @@ export const registrationCityValidation = "city is required.";
 export const registrationZipCodeValidation = "The Zip/Postal code you've entered is invalid. It must follow this format: 00000";
 export const registrationStateValidation = "This country requires you to choose a State.";
 
-export const allFieldsValidation =
+export const allRegistrationFieldsValidation =
   registrationPhoneNumberValidation +
   registrationLastNameValidation +
   registrationFirstNameValidation +
@@ -16,3 +16,5 @@ export const allFieldsValidation =
   registrationCityValidation +
   registrationZipCodeValidation +
   registrationStateValidation;
+
+export const invalidPasswordValidation = "Invalid password";

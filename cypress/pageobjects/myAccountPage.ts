@@ -1,11 +1,6 @@
-import { MY_ACCOUNT_URL } from "../fixtures/constants";
-import * as selectors from "../selectors/pageSelectors";
+import Page from "./page";
 
-class MyAccountPage {
-    verifyUserIsLoggedIn() {
-        cy.url().should("equal", MY_ACCOUNT_URL);
-        cy.get(selectors.signOutButtonSelector);
-    }
+class MyAccountPage extends Page {
 
 }
 

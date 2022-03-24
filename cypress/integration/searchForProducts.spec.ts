@@ -1,27 +1,42 @@
-import { FILTER_CATEGORIES_URL } from "../fixtures/constants";
 import MainPage from "../pageobjects/mainPage"
 import ProductsPage from "../pageobjects/productsPage";
 
 describe("Filtering the products", () => {
     beforeEach(() => {
-        MainPage.visit();
+        MainPage.
+            visit();
     })
 
-    it('should filter t-shirts', () => {
-        MainPage.clickOnWomenCategory();
+    it('searches for blouse in WOMEN category', () => {
+        MainPage.
+            clickOnCategory('Women');
         
-        ProductsPage.clickOnTopsCategory();
-        ProductsPage.clickOnTShirtsCategory();
+        ProductsPage.
+            clickOnSubcategory('Tops').
+            clickOnSubcategory('Blouses');
 
-        ProductsPage.verifyTShirtCategorySelected();
+        ProductsPage.
+            getItemFromProductsList("Blouse").
+            should('exist');
     })
 
-    it.skip('should filter pink dresses', () => {
-        cy.intercept(`${FILTER_CATEGORIES_URL}/*`).as('filter');
+    it('searches for Printed Summer Dress in DRESSES category', () => {
+        MainPage.
+            clickOnCategory('Dresses');
 
-        MainPage.clickOnWomenCategory();
-        ProductsPage.filterForPinkDresses();
+        ProductsPage.
+            clickOnSubcategory('Summer Dresses').
+            filterByColor('White');
 
-        cy.wait('@filter').its('response.statusCode').should("be.eq", "200");
+        ProductsPage.getItemFromProductsList("Printed Summer Dress")
+    })
+
+    it('triggers empty state in T-SHIRTS category', () => {
+        MainPage.
+            clickOnCategory('T-shirts');
+
+        ProductsPage.changePriceRange(0);
+
+        ProductsPage.verifyEmptyStateIsDisplayed().should('exist');
     })
 })

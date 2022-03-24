@@ -1,4 +1,4 @@
-import { classSelector, idSelector } from "../support/helpers";
+import { classSelector, idSelector } from "../support/utils";
 
 export const proceedToCheckoutSummaryButtonSelector = classSelector("button btn btn-default standard-checkout button-medium");
 export const proceedToCheckoutAddressButtonSelector = classSelector("button btn btn-default button-medium");

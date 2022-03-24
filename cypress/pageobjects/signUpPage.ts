@@ -1,4 +1,5 @@
 import * as selectors from "../selectors/signUpPageSelectors";
+import { validationSelector } from "../selectors/signInPageSelectors";
 import { ADDRESS, CITY, ZIPCODE, PHONE_NUMBER } from "../fixtures/constants";
 import Page from "./page";
 const faker = require('faker');
@@ -24,6 +25,8 @@ class SignUpPage extends Page {
         cy.get(selectors.stateDropdownSelector).select("New York");
         cy.get(selectors.zipCodeInputSelector).type(ZIPCODE);
         cy.get(selectors.mobilePhoneSelector).type(PHONE_NUMBER);
+        
+        return this;
     }
 
     clickOnRegister() {
@@ -31,9 +34,7 @@ class SignUpPage extends Page {
     }
 
     getValidation() {
-        return cy.get(selectors.validationSelector).then(el => {
-            return el.text().replace(/\n+\t+/g,'');
-        });
+        return this.getValidationText(validationSelector);
     }
 }
 

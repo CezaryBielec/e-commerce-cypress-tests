@@ -1,5 +1,6 @@
-import { idSelector } from "../support/helpers";
+import { idSelector, classSelector } from "../support/utils";
 
+export const validationSelector = classSelector('alert alert-danger');
 export const emailAddressInputSelector = idSelector("email_create");
 export const createAnAccountButtonSelector = idSelector("SubmitCreate");
 export const emailInputSelector = idSelector("email");

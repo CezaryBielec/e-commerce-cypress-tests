@@ -8,5 +8,11 @@ abstract class Page {
     getUrl() {
         return cy.url();
     }
+
+    protected getValidationText(validationSelector: string) {
+        return cy.get(validationSelector).then(el => {
+            return el.text().replace(/\n+\t+/g,'');
+        });
+    }
 }
 export default Page;
