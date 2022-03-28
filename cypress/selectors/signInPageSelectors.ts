@@ -1,9 +1,8 @@
-import { idSelector, classSelector } from "../support/utils";
+import { idSelector } from "../support/utils";
 
-export const validationSelector = classSelector('alert alert-danger');
-export const emailAddressInputSelector = idSelector("email_create");
-export const createAnAccountButtonSelector = idSelector("SubmitCreate");
-export const emailInputSelector = idSelector("email");
-export const passwordInputSelector = idSelector("passwd");
-export const signInButtonSelector = idSelector("SubmitLogin");
-export const newAccountEmailValidationSelector = idSelector("create_account_error")
+export const validationXpathSelector = "//*[@class='alert alert-danger']//li";
+export const emailAddressInputIdSelector = idSelector("email_create");
+export const createAnAccountButtonIdSelector = idSelector("SubmitCreate");
+export const emailInputIdSelector = idSelector("email");
+export const passwordInputIdSelector = idSelector("passwd");
+export const signInButtonIdSelector = idSelector("SubmitLogin");

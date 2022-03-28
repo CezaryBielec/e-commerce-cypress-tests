@@ -1,8 +1,9 @@
 {
     "baseUrl": "http://automationpractice.com/index.php",
-    "defaultCommandTimeout": 8000,
+    "defaultCommandTimeout": 10000,
     "env": {
         "email": "Aurore.Mayert70@gmail.com",
         "password": "password"
-    }
+    },
+    "chromeWebSecurity": false
 }

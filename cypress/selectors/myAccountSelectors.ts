@@ -1,0 +1,1 @@
+export const firstOrderReferenceXpathSelector = "(//*[@class='first_item ']//a)[1]";

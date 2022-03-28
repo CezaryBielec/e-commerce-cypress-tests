@@ -24,7 +24,7 @@ describe("Cart", () => {
         ProductsPage.
             addFirstProductToCart().
             clickOnProceedToCheckout();
-        
+
         CartPage.
             removeFirstProductFromCart().
             getWarning().
@@ -40,14 +40,14 @@ describe("Cart", () => {
             should('have.text', "1");
     })
 
-    it.only('increases number of the same product in cart', () => {
+    it('increases number of the same product in cart', () => {
         ProductsPage.
             addFirstProductToCart().
             clickOnProceedToCheckout();
 
         CartPage.
             increaseQuantityOfFirstProductInCart().
-            
+
             getQuantityOfFirstProductInCart().
             should('have.value', "2");
     })
@@ -59,7 +59,7 @@ describe("Cart", () => {
 
         CartPage.
             getShippingPriceSummary().
-            should('have.text', "$2.00")
+            should('equal', 2)
         CartPage.
             verifyTotalPriceEqualsProductsPlusShipping().
             should('be.true');

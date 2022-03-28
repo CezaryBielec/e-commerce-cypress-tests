@@ -10,7 +10,7 @@ describe("Filtering the products", () => {
     it('searches for blouse in WOMEN category', () => {
         MainPage.
             clickOnCategory('Women');
-        
+
         ProductsPage.
             clickOnSubcategory('Tops').
             clickOnSubcategory('Blouses');

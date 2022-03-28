@@ -22,17 +22,17 @@ describe("Login", () => {
 
         MyAccountPage.
             getUrl().
-            should('equal', MY_ACCOUNT_URL);
+            should('contain', MY_ACCOUNT_URL);
     })
 
     it("doesn't log in successfully because of incorrect password", () => {
         SignInPage.
             enterEmail(emailOfExistingAccount).
-            enterPassword(passwordOfExistingAccount).
+            enterPassword("incorrectpassword").
             clickOnSignIn();
 
         SignInPage.
             getValidation().
-            should('have.text', invalidPasswordValidation);
+            should('contain', invalidPasswordValidation);
     })
 })

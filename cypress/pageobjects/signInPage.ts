@@ -1,48 +1,50 @@
+import { SIGN_IN_PAGE } from "../fixtures/constants";
 import * as selectors from "../selectors/signInPageSelectors";
 import Page from "./page";
-
-const faker = require('faker');
+import FakeDataClient from "../support/FakeDataClient";
 
 class SignInPage extends Page {
 
     visitSignInPage() {
-        this.visit("?controller=authentication&back=my-account");
+        this.visit(SIGN_IN_PAGE);
         return this;
     }
 
     enterRandomEmailAddress() {
-        const emailAddress = faker.internet.email();
+        const emailAddress = FakeDataClient.generateEmail();
         this.enterEmailAddress(emailAddress);
         return this;
     }
 
     enterEmailAddress(emailAddress: string) {
-        cy.get(selectors.emailAddressInputSelector).then(el => {
+        cy.get(selectors.emailAddressInputIdSelector).then(el => {
             if (emailAddress.length != 0) cy.wrap(el).type(emailAddress)
         });
         return this;
     }
 
     getValidation() {
-        return this.getValidationText(selectors.newAccountEmailValidationSelector);
+        return cy.xpath(selectors.validationXpathSelector).then(el => {
+            return this.normalizeText(el.text());
+        })
     }
 
     clickOnCreateAnAccount() {
-        cy.get(selectors.createAnAccountButtonSelector).click();
+        cy.get(selectors.createAnAccountButtonIdSelector).click();
     }
 
     enterEmail(email: string) {
-        cy.get(selectors.emailInputSelector).type(email);
+        cy.get(selectors.emailInputIdSelector).type(email);
         return this;
     }
 
     enterPassword(password: string) {
-        cy.get(selectors.passwordInputSelector).type(password);
+        cy.get(selectors.passwordInputIdSelector).type(password);
         return this;
     }
 
     clickOnSignIn() {
-        cy.get(selectors.signInButtonSelector).click();
+        cy.get(selectors.signInButtonIdSelector).click();
     }
 
     logIn(email: string, password: string) {

@@ -14,9 +14,21 @@ export const productsPriceSummaryIdSelector = idSelector("total_product");
 export const shippingPriceSummaryIdSelector = idSelector("total_shipping");
 export const totalPriceSummaryIdSelector = idSelector("total_price");
 
-export const proceedToCheckoutSummaryButtonSelector = classSelector("button btn btn-default standard-checkout button-medium");
-export const proceedToCheckoutAddressButtonSelector = classSelector("button btn btn-default button-medium");
-export const proceedToCheckoutShippingButtonSelector = classSelector("button btn btn-default standard-checkout button-medium");
-export const termsOfServiceCheckboxSelector = idSelector("uniform-cgv");
-export const payByBankWireButtonSelector = classSelector("bankwire");
-export const confirmOrderButtonSelector = classSelector("button btn btn-default button-medium");
+export const continueShoppingBackButtonXpathSelector = "//a[@title='Previous']";
+export const otherPaymentMethodsButtonXpathSelector = "//*[@id='cart_navigation']//a"
+
+export const addNewAddressXpathSelector = "//a[@title='Add']";
+export const changeShippingAddressSelectIdSelector = idSelector("id_address_delivery");
+
+export const termsAndConditionsErrorClassSelector = classSelector("fancybox-error");
+
+export const proceedToCheckoutSummaryButtonClassSelector = classSelector("button btn btn-default standard-checkout button-medium");
+export const proceedToCheckoutAddressButtonClassSelector = classSelector("button btn btn-default button-medium");
+export const proceedToCheckoutShippingButtonClassSelector = classSelector("button btn btn-default standard-checkout button-medium");
+export const termsOfServiceCheckboxIdSelector = idSelector("uniform-cgv");
+export const payByBankWireButtonClassSelector = classSelector("bankwire");
+export const payByCheckButtonClassSelector = classSelector("cheque");
+export const confirmOrderButtonClassSelector = classSelector("button btn btn-default button-medium");
+
+export const orderConfirmationContentXpathSelector = "//*[@id='center_column']//*[@class='box']";
+export const backToOrdersButtonXpathSelector = "//a[text() = 'Back to orders']";

@@ -17,6 +17,7 @@ export const allRegistrationFieldsValidation =
   registrationZipCodeValidation +
   registrationStateValidation;
 
-export const invalidPasswordValidation = "Invalid password";
+export const invalidPasswordValidation = "Authentication failed";
 
 export const cartEmptyStateText = "Your shopping cart is empty.";
+export const termsAndConditionsRequiredText = "You must agree to the terms of service before continuing.";

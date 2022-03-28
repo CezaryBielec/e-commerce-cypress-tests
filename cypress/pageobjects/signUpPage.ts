@@ -1,8 +1,9 @@
 import * as selectors from "../selectors/signUpPageSelectors";
-import { validationSelector } from "../selectors/signInPageSelectors";
-import { ADDRESS, CITY, ZIPCODE, PHONE_NUMBER } from "../fixtures/constants";
+import { validationXpathSelector } from "../selectors/signInPageSelectors";
 import Page from "./page";
-const faker = require('faker');
+import FakeDataClient from "../support/FakeDataClient";
+
+const addressInfo = FakeDataClient.generateAddressInfo();
 
 class SignUpPage extends Page {
 
@@ -11,22 +12,19 @@ class SignUpPage extends Page {
     }
 
     fillForm() {
-        const name = faker.name.firstName();
-        const lastName = faker.name.lastName();
-
         cy.get(selectors.mrGenderRadioButtonSelector).click();
-        cy.get(selectors.firstNameInputSelector).type(name);
-        cy.get(selectors.lastNameInputSelector).type(lastName);
+        cy.get(selectors.firstNameInputSelector).type(addressInfo.name);
+        cy.get(selectors.lastNameInputSelector).type(addressInfo.lastName);
         cy.get(selectors.passwordInputSelector).type("password");
-        cy.get(selectors.dateOfBirthDaysDropdownSelector).select("8");
-        cy.get(selectors.dateOfBirthMonthsDropdownSelector).select("September")
-        cy.get(selectors.dateOfBirthYearsDropdownSelector).select("1997")
-        cy.get(selectors.addressInputSelector).type(ADDRESS);
-        cy.get(selectors.cityInputSelector).type(CITY);
-        cy.get(selectors.stateDropdownSelector).select("New York");
-        cy.get(selectors.zipCodeInputSelector).type(ZIPCODE);
-        cy.get(selectors.mobilePhoneSelector).type(PHONE_NUMBER);
-        
+        cy.get(selectors.dateOfBirthDaysDropdownSelector).select(addressInfo.day);
+        cy.get(selectors.dateOfBirthMonthsDropdownSelector).select(addressInfo.month)
+        cy.get(selectors.dateOfBirthYearsDropdownSelector).select(addressInfo.year)
+        cy.get(selectors.addressInputSelector).type(addressInfo.address);
+        cy.get(selectors.cityInputSelector).type(addressInfo.city);
+        cy.get(selectors.stateDropdownSelector).select(addressInfo.state);
+        cy.get(selectors.zipCodeInputSelector).type(addressInfo.zipCode);
+        cy.get(selectors.mobilePhoneSelector).type(addressInfo.phoneNumber);
+
         return this;
     }
 
@@ -35,7 +33,9 @@ class SignUpPage extends Page {
     }
 
     getValidation() {
-        return this.getValidationText(validationSelector);
+        return cy.xpath(validationXpathSelector).then(el => {
+            return this.normalizeText(el.text());
+        })
     }
 }
 

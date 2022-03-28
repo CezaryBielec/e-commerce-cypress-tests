@@ -4,7 +4,7 @@ import Page from "./page";
 type Categories = "Women" | "Dresses" | "T-shirts";
 
 class MainPage extends Page {
-    
+
     clickOnSignIn() {
         cy.get(selectors.signInButtonSelector).click();
     }

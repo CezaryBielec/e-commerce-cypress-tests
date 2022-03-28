@@ -70,6 +70,6 @@ describe("Sign up", () => {
 
         MyAccountPage.
             getUrl().
-            should('equal', MY_ACCOUNT_URL);
+            should('contain', MY_ACCOUNT_URL);
     })
 })
