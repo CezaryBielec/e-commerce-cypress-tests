@@ -4,8 +4,9 @@ import Page from "./page";
 const faker = require('faker');
 
 class SignInPage extends Page {
+
     visitSignInPage() {
-        this.visit("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        this.visit("?controller=authentication&back=my-account");
         return this;
     }
 

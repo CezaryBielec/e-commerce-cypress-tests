@@ -5,6 +5,7 @@ import Page from "./page";
 const faker = require('faker');
 
 class SignUpPage extends Page {
+
     verifySignUpPageOpened() {
         return cy.url();
     }

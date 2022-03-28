@@ -3,11 +3,17 @@ import MainPage from "../pageobjects/mainPage";
 import ProductsPage from "../pageobjects/productsPage";
 import CartPage from "../pageobjects/cartPage";
 
+const emailOfExistingAccount = Cypress.env('email');
+const passwordOfExistingAccount = Cypress.env('password');
+
 describe("Checkout", () => {
+
     beforeEach(() => {
-        SignInPage.visitSignInPage();
-        SignInPage.logIn();
-        MainPage.clickOnWomenCategory();
+        SignInPage.
+            visitSignInPage().
+            logIn(emailOfExistingAccount, passwordOfExistingAccount);
+        MainPage.
+            clickOnCategory('Women');
     })
 
     it("should complete an order", () => {

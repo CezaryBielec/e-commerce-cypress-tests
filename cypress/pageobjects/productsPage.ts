@@ -8,14 +8,20 @@ class ProductsPage {
     addFirstProductToCart() {
         cy.get(selectors.productContainerSelector).first().trigger('mouseover');
         cy.get(selectors.addToCartButtonSelector).first().click();
+        return this;
     }
 
     clickOnProceedToCheckout() {
         cy.get(selectors.cartPopupSelector).get(selectors.proceedToCheckoutButtonSelector).click();
     }
 
-    verifyOneItemInCart() {
-        cy.get(selectors.numberOfProductsInCartSelector).should('have.text', "1");
+    clickOnContinueShopping() {
+        cy.get(selectors.continueShoppingButtonSelector).click();
+        return this;
+    }
+
+    getNumberOfProductsInCartPanel() {
+        return cy.get(selectors.numberOfProductsInCartSelector);
     }
 
     removeItemFromCart() {
@@ -25,10 +31,6 @@ class ProductsPage {
 
     verifyCartIsEmpty() {
         cy.get(selectors.noProductsInCartSelector);
-    }
-
-    clickOnContinueShopping() {
-        cy.get(selectors.continueShoppingButtonSelector).click();
     }
 
     private verifyCategorySelected(categoryName: string) {
@@ -55,13 +57,17 @@ class ProductsPage {
 
     changePriceRange(xCooridnateOfTheSlider: number) {
         cy.xpath(selectors.rightEndOfThePriceRangeSlider).
-            trigger('mousedown', {which: 1}).
-            trigger('mousemove', {which: 1, pageX: xCooridnateOfTheSlider}).
-            trigger('mouseup', {which: 1});
+            trigger('mousedown', { which: 1 }).
+            trigger('mousemove', { which: 1, pageX: xCooridnateOfTheSlider }).
+            trigger('mouseup', { which: 1 });
     }
 
     verifyEmptyStateIsDisplayed() {
         return cy.xpath(selectors.productsListEmptyStateXpathSelector);
+    }
+
+    openCart() {
+        cy.get(selectors.cartSectionSelector).click();
     }
 }
 

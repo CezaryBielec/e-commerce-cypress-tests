@@ -18,3 +18,5 @@ export const allRegistrationFieldsValidation =
   registrationStateValidation;
 
 export const invalidPasswordValidation = "Invalid password";
+
+export const cartEmptyStateText = "Your shopping cart is empty.";

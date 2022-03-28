@@ -28,15 +28,19 @@ describe("Filtering the products", () => {
             clickOnSubcategory('Summer Dresses').
             filterByColor('White');
 
-        ProductsPage.getItemFromProductsList("Printed Summer Dress")
+        ProductsPage.
+            getItemFromProductsList("Printed Summer Dress")
     })
 
     it('triggers empty state in T-SHIRTS category', () => {
         MainPage.
             clickOnCategory('T-shirts');
 
-        ProductsPage.changePriceRange(0);
+        ProductsPage.
+            changePriceRange(0);
 
-        ProductsPage.verifyEmptyStateIsDisplayed().should('exist');
+        ProductsPage.
+            verifyEmptyStateIsDisplayed().
+            should('exist');
     })
 })
