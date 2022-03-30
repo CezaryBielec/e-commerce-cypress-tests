@@ -86,12 +86,12 @@ class CartPage extends Page {
     }
 
     clickOnProceedToCheckoutSummary() {
-        cy.get(selectors.proceedToCheckoutSummaryButtonClassSelector).click();
+        cy.xpath(selectors.proceedToCheckoutSummaryButtonXpathSelector).click();
         return this;
     }
 
     clickOnProceedToCheckoutAddress() {
-        cy.get(selectors.proceedToCheckoutAddressButtonClassSelector).click();
+        cy.xpath(selectors.proceedToCheckoutAddressButtonXpathSelector).click();
         return this;
     }
 
@@ -101,7 +101,7 @@ class CartPage extends Page {
     }
 
     clickOnProceedToCheckoutShipping() {
-        cy.get(selectors.proceedToCheckoutShippingButtonClassSelector).click();
+        cy.xpath(selectors.proceedToCheckoutShippingButtonXpathSelector).click();
         return this;
     }
 
@@ -121,7 +121,7 @@ class CartPage extends Page {
     }
 
     clickOnConfirmOrder() {
-        cy.get(selectors.confirmOrderButtonClassSelector).click();
+        cy.xpath(selectors.confirmOrderButtonXpathSelector).click();
         return this;
     }
 

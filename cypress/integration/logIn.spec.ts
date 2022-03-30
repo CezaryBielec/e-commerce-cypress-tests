@@ -4,10 +4,11 @@ import SignInPage from "../pageobjects/signInPage";
 import { invalidPasswordValidation } from "../fixtures/validations";
 import { MY_ACCOUNT_URL } from "../fixtures/constants";
 
-const emailOfExistingAccount = Cypress.env('email');
-const passwordOfExistingAccount = Cypress.env('password');
+const emailOfExistingAccount = Cypress.env('CYPRESS_ACCOUNT_EMAIL');
+const passwordOfExistingAccount = Cypress.env('CYPRESS_ACCOUNT_PASSWORD');
 
-describe("Login", () => {
+describe('Log in', () => {
+
     beforeEach(() => {
         MainPage.
             visit().

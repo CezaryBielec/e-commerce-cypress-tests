@@ -7,20 +7,25 @@ import { WOMEN_CATEGORY_URL } from "../fixtures/constants";
 import MyAddressesPage from "../pageobjects/myAddressesPage";
 import FakeDataClient from "../support/FakeDataClient";
 
-const emailOfExistingAccount = Cypress.env('email');
-const passwordOfExistingAccount = Cypress.env('password');
+const emailOfExistingAccount = Cypress.env('CYPRESS_ACCOUNT_EMAIL');
+const passwordOfExistingAccount = Cypress.env('CYPRESS_ACCOUNT_PASSWORD');
 const randomAddressTitile = FakeDataClient.generateAlphaNumericName();
 
 describe("Checkout", () => {
 
     describe("as logged in user", () => {
 
-        beforeEach(() => {
+        before(() => {
             SignInPage.
                 visitSignInPage().
                 logIn(emailOfExistingAccount, passwordOfExistingAccount);
+        })
+
+        beforeEach(() => {
+            SignInPage.
+                preserveAuthCookie();
             MainPage.
-                clickOnCategory('Women');
+                visit(WOMEN_CATEGORY_URL)
             ProductsPage.
                 addFirstProductToCart().
                 clickOnProceedToCheckout();
@@ -121,8 +126,12 @@ describe("Checkout", () => {
 
 
     describe('as logged out user', () => {
-        beforeEach(() => {
 
+        before(()=>{
+            cy.clearCookies();
+        })
+
+        beforeEach(() => {
             MainPage.
                 visit(WOMEN_CATEGORY_URL);
             ProductsPage.

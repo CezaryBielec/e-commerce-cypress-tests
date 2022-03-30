@@ -5,15 +5,18 @@ import MyAccountPage from "../pageobjects/myAccountPage";
 import ProductsPage from "../pageobjects/productsPage";
 import SignInPage from "../pageobjects/signInPage";
 
-const emailOfExistingAccount = Cypress.env('email');
-const passwordOfExistingAccount = Cypress.env('password');
+const emailOfExistingAccount = Cypress.env('CYPRESS_ACCOUNT_EMAIL');
+const passwordOfExistingAccount = Cypress.env('CYPRESS_ACCOUNT_PASSWORD');
 
 describe("My account", () => {
 
-    it('verifies last order is visible in my profile orders list', () => {
+    beforeEach(() => {
         SignInPage.
             visit(SIGN_IN_PAGE).
             logIn(emailOfExistingAccount, passwordOfExistingAccount);
+    })
+
+    it('verifies last order is visible in my profile orders list', () => {
         MainPage.
             visit(WOMEN_CATEGORY_URL);
         ProductsPage.

@@ -19,5 +19,8 @@ export const allRegistrationFieldsValidation =
 
 export const invalidPasswordValidation = "Authentication failed";
 
+export const emailAlreadyUsedValidation = "An account using this email address has already been registered. Please enter a valid password or request a new one.";
+export const invalidEmailValidation = "Invalid email address";
+
 export const cartEmptyStateText = "Your shopping cart is empty.";
 export const termsAndConditionsRequiredText = "You must agree to the terms of service before continuing.";

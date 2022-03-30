@@ -52,6 +52,14 @@ class SignInPage extends Page {
         this.enterPassword(password);
         this.clickOnSignIn();
     }
+
+    preserveAuthCookie() {
+        cy.getCookies().then(cookies => {
+            expect(cookies[0].value.length > 250);
+            const cookieName = cookies[0].name;
+            Cypress.Cookies.preserveOnce(cookieName);
+        })
+    }
 }
 
 export default new SignInPage();

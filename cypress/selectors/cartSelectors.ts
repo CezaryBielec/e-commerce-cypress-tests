@@ -22,13 +22,13 @@ export const changeShippingAddressSelectIdSelector = idSelector("id_address_deli
 
 export const termsAndConditionsErrorClassSelector = classSelector("fancybox-error");
 
-export const proceedToCheckoutSummaryButtonClassSelector = classSelector("button btn btn-default standard-checkout button-medium");
-export const proceedToCheckoutAddressButtonClassSelector = classSelector("button btn btn-default button-medium");
-export const proceedToCheckoutShippingButtonClassSelector = classSelector("button btn btn-default standard-checkout button-medium");
+export const proceedToCheckoutSummaryButtonXpathSelector = "//*[@id='center_column']//a[@title='Proceed to checkout']";
+export const proceedToCheckoutAddressButtonXpathSelector = "//button[@name='processAddress']";
+export const proceedToCheckoutShippingButtonXpathSelector = "//button[@name='processCarrier']";
 export const termsOfServiceCheckboxIdSelector = idSelector("uniform-cgv");
 export const payByBankWireButtonClassSelector = classSelector("bankwire");
 export const payByCheckButtonClassSelector = classSelector("cheque");
-export const confirmOrderButtonClassSelector = classSelector("button btn btn-default button-medium");
+export const confirmOrderButtonXpathSelector = "//button//*[text()='I confirm my order']"
 
 export const orderConfirmationContentXpathSelector = "//*[@id='center_column']//*[@class='box']";
 export const backToOrdersButtonXpathSelector = "//a[text() = 'Back to orders']";

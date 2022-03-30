@@ -3,12 +3,10 @@ import SignInPage from "../pageobjects/signInPage";
 import SignUpPage from "../pageobjects/signUpPage";
 import MyAccountPage from "../pageobjects/myAccountPage";
 import each from 'mocha-each';
-import { allRegistrationFieldsValidation } from "../fixtures/validations";
+import { allRegistrationFieldsValidation, emailAlreadyUsedValidation, invalidEmailValidation } from "../fixtures/validations";
 import { MY_ACCOUNT_URL } from "../fixtures/constants";
 
-const invalidEmailValidation = "Invalid email address";
-const emailAlreadyUsedValidation = "An account using this email address has already been registered. Please enter a valid password or request a new one.";
-const emailOfAlreadyCreatedAccount = Cypress.env("email");
+const emailOfAlreadyCreatedAccount = Cypress.env("CYPRESS_ACCOUNT_EMAIL");
 
 describe("Sign up", () => {
     beforeEach(() => {

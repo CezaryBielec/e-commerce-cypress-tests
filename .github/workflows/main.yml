@@ -3,10 +3,25 @@ name: Cypress Tests
 on: [push]
 
 jobs:
-  cypress-run:
+  cypress-desktop:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Cypress run
+      - name: Automation tests on desktop
         uses: cypress-io/github-action@v2
+        env:
+          CYPRESS_ACCOUNT_EMAIL: ${{ secrets.CYPRESS_ACCOUNT_EMAIL }}
+          CYPRESS_ACCOUNT_PASSWORD: ${{ secrets.CYPRESS_ACCOUNT_PASSWORD }}
+  cypress-mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Automation tests on mobile
+        uses: cypress-io/github-action@v2
+        with:
+          config: "viewportWidth=393,viewportHeight=851"
+        env:
+          CYPRESS_ACCOUNT_EMAIL: ${{ secrets.CYPRESS_ACCOUNT_EMAIL }}
+          CYPRESS_ACCOUNT_PASSWORD: ${{ secrets.CYPRESS_ACCOUNT_PASSWORD }}
