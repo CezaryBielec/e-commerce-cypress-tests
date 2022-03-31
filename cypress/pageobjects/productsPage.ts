@@ -47,6 +47,7 @@ class ProductsPage {
     }
 
     filterByColor(color: Colors) {
+        this.unrollFiltersMenuIfMobileVersion();
         cy.xpath(selectors.colorFilterXpathSelector(color)).click();
         return this;
     }
@@ -56,10 +57,17 @@ class ProductsPage {
     }
 
     changePriceRange(xCooridnateOfTheSlider: number) {
+        this.unrollFiltersMenuIfMobileVersion();
         cy.xpath(selectors.rightEndOfThePriceRangeSlider).
             trigger('mousedown', { which: 1 }).
             trigger('mousemove', { which: 1, pageX: xCooridnateOfTheSlider }).
             trigger('mouseup', { which: 1 });
+    }
+
+    private unrollFiltersMenuIfMobileVersion() {
+        if(Cypress.config("viewportWidth") == 393) {
+            cy.get(selectors.unrollFiltersButtonIdSelector).click();
+        }
     }
 
     verifyEmptyStateIsDisplayed() {

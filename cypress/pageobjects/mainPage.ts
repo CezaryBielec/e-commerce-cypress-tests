@@ -11,11 +11,9 @@ class MainPage extends Page {
     }
 
     clickOnCategory(category: Categories) {
-        cy.get("body").then(body => {
-            if(body.find(selectors.mobileCategoryClass).length) {
-                cy.get(selectors.categoriesMenuClassSelector).click()
-            }
-        })
+        if(Cypress.config("viewportWidth") == 393) {
+            cy.get(selectors.categoriesMenuClassSelector).click()
+        }
         cy.xpath(selectors.categoryXpathSelector(category)).last().click();
     }
 }

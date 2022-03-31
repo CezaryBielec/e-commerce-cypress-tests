@@ -17,6 +17,7 @@ export const cartSectionSelector = "[title='View my shopping cart']";
 
 export const subcategoryXpathSelector = (subcategory: string) => `//*[@id='subcategories']//*[@title='${subcategory}']`
 
+export const unrollFiltersButtonIdSelector = idSelector("layered_block_left");
 export const colorFilterXpathSelector = (color: string) => `//*[@id='left_column']//*[contains(text(), '${color}')]`;
 export const rightEndOfThePriceRangeSlider = "//*[@class='ui-slider-handle ui-state-default ui-corner-all'][2]";
 
